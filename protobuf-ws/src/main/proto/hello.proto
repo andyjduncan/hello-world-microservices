@@ -1,0 +1,12 @@
+package hello;
+
+option java_package = "com.adjectivecolournoun.hello.protobuf";
+
+message HelloRequest {
+    required string name = 1;
+    optional string day = 2;
+}
+
+message HelloResponse {
+    required string message = 1;
+}

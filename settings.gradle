@@ -1,0 +1,6 @@
+rootProject.name = 'hello-world-microservices'
+
+include 'common', 'rest', 'protobuf-ws'
+
+include 'jms'
+

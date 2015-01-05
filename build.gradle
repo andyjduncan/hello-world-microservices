@@ -1,0 +1,33 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.2.0.RELEASE'
+    }
+}
+
+apply plugin: 'idea'
+
+version = '1.0'
+
+subprojects {
+
+    apply plugin: 'java'
+    apply plugin: 'groovy'
+    apply plugin: 'spring-boot'
+
+    sourceCompatibility = 1.7
+
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        compile 'org.codehaus.groovy:groovy-all'
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.2.1'
+}

@@ -1,0 +1,2 @@
+protobufCompiler = 'set full path to protoc in ~/.gradle/gradle.properties'
+

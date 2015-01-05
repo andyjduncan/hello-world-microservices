@@ -1,0 +1,41 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.andrewkroh.gradle:gradle-protobuf-plugin:0.4.0'
+    }
+}
+
+apply plugin: 'idea'
+apply plugin: 'protobuf'
+
+def protoSrc = new File(buildDir, protobuf.outputJava)
+
+sourceSets {
+    main {
+        java {
+            srcDir protoSrc
+        }
+    }
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile project(':common')
+
+    compile 'org.springframework.boot:spring-boot-starter-websocket'
+}
+
+protobuf {
+    version = '2.5.0'
+    compiler = protobufCompiler
+}
+
+idea.module {
+    excludeDirs -= file(buildDir)
+    buildDir.listFiles({ it != protoSrc.parentFile } as FileFilter).each { excludeDirs += it }
+}
